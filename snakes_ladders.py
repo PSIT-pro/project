@@ -9,7 +9,7 @@ width_screen = 1366
 height_screen = 768
 
 #เซตอัพหน้าต่าง window
-ic = pygame.image.load("resources/icon.png")
+ic = pygame.image.load("core/icon.jpg")
 game_layout_display = pygame.display.set_mode((width_screen, height_screen))
 pygame.display.set_caption("Snake Snake Fish Fish")
 pygame.display.set_icon(ic)
@@ -18,35 +18,35 @@ pygame.display.update()
 #รูปประกอบทั้งหมด
 
 #รูปกระดาน
-mainboard = pygame.image.load("fish/border.png")
+mainboard = pygame.image.load("set1/border.png")
 
 #รูปลูกเต๋า 6 แบบ
-d1 = pygame.image.load("resources/dice_image1.png")
-d2 = pygame.image.load("resources/dice_image2.png")
-d3 = pygame.image.load("resources/dice_image3.png")
-d4 = pygame.image.load("resources/dice_image4.png")
-d5 = pygame.image.load("resources/dice_image5.png")
-d6 = pygame.image.load("resources/dice_image6.png")
+d1 = pygame.image.load("set1/dice_image1.png")
+d2 = pygame.image.load("set1/dice_image2.png")
+d3 = pygame.image.load("set1/dice_image3.png")
+d4 = pygame.image.load("set1/dice_image4.png")
+d5 = pygame.image.load("set1/dice_image5.png")
+d6 = pygame.image.load("set1/dice_image6.png")
 
 #ภาพตัวหมาก 4 สี
-red_c = pygame.image.load("fish/redfish.png")
-yellow_c = pygame.image.load("fish/yellowfish.png")
-green_c = pygame.image.load("fish/greenfish.png")
-blue_c = pygame.image.load("fish/bluefish.png")
+red_c = pygame.image.load("set1/redfish.png")
+yellow_c = pygame.image.load("set1/yellowfish.png")
+green_c = pygame.image.load("set1/greenfish.png")
+blue_c = pygame.image.load("set1/bluefish.png")
 
 #หน้าเมนู
-menu_background = pygame.image.load("fish/BGgreen.jpg")
-post = pygame.image.load("fish/BGgreen.jpg")
+menu_background = pygame.image.load("set1/BGgreen.jpg")
+post = pygame.image.load("set1/BGgreen.jpg")
 
 #พื้นหลังหน้าโหลด
-initial_background = pygame.image.load("fish/click5.jpg")
-initial_background2 = pygame.image.load("fish/click1.jpg")
-initial_background3 = pygame.image.load("fish/click2.jpg")
-initial_background4 = pygame.image.load("fish/click3.jpg")
-initial_background5 = pygame.image.load("fish/click4.jpg")
+initial_background = pygame.image.load("set1/click5.jpg")
+initial_background2 = pygame.image.load("set1/click1.jpg")
+initial_background3 = pygame.image.load("set1/click2.jpg")
+initial_background4 = pygame.image.load("set1/click3.jpg")
+initial_background5 = pygame.image.load("set1/click4.jpg")
 
 #เครดิต
-creditations1 = pygame.image.load("fish/end.jpg")
+creditations1 = pygame.image.load("set1/end.jpg")
 
 #เพลงประกอบ
 pygame.mixer.music.load("sound/BGsong.wav")
@@ -98,7 +98,7 @@ def text_objects1_screen(text, font, c):
     return textSurface, textSurface.get_rect()
 
 
-#ตำแหน่งที่หมากแต่ละตัวจะไป
+#ตำแหน่งที่หมากแต่ละตัวจะไป เปลี่ยนค่า x,y
 def movement(a):
     l1 = [[406, 606], [456, 606], [506, 606], [556, 606], [606, 606], [656, 606], [706, 606], [756, 606], [806, 606],
           [856, 606], [906, 606], [906, 560], [856, 560], [806, 560], [756, 560], [706, 560], [656, 560], [606, 560],
@@ -568,7 +568,6 @@ def playing(best):
 
         time_clocks.tick(7)
         pygame.display.update()
-
-
+ 
 introduction()
 main_menu()
