@@ -2,7 +2,8 @@ import pygame
 from random import randint
 
 time_clocks = pygame.time.Clock()
-#ทดสอบ 2
+#ทดสอบ 3
+
 #เซตหน้าจอ
 pygame.init()
 width_screen = 1366
