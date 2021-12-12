@@ -46,6 +46,12 @@ initial_background3 = pygame.image.load("set1/click2.jpg")
 initial_background4 = pygame.image.load("set1/click3.jpg")
 initial_background5 = pygame.image.load("set1/click4.jpg")
 
+#หน้าชนะ
+win1 = pygame.image.load("set1/win.png")
+win2 = pygame.image.load("set1/win.png")
+win3 = pygame.image.load("set1/win.png")
+win4 = pygame.image.load("set1/win.png")
+
 #เครดิต
 creditations1 = pygame.image.load("set1/end.jpg")
 
@@ -177,6 +183,21 @@ def dice(d):
         game_layout_display.blit(d, (300, 500))
         pygame.display.update()
 
+#หน้าต่างผู้ชนะ
+def winner(w):
+    if w == 1: #ผู้เล่น 1 ชนะ
+        w = win1
+    elif w == 2: #ผู้เล่น 2 ชนะ
+        w = win1
+    elif w == 3: #ผู้เล่น 3 ชนะ
+        w = win1
+    elif w == 4: #ผู้เล่น 4 ชนะ
+        w = win1
+
+    time_clock = pygame.time.get_ticks()
+    while pygame.time.get_ticks() - time_clock < 5000:
+        game_layout_display.blit(w, (420, 100))
+        pygame.display.update()
 
 def button2(t, xm, ym, x, y, wid, hei, int, after, fast):
     # mouse position
@@ -224,7 +245,7 @@ def turn(sc, lefted, section):
             pygame.mixer.Sound.play(ladder)
             time_clock = pygame.time.get_ticks()
             sc = laddle
-        sink = snakes(sc)
+        sink = snakes(sc) 
         if sink != sc:  #เช็คกับตำแแหน่งงู
             section = True
             pygame.mixer.Sound.play(snake_sound)
@@ -246,7 +267,7 @@ def Quit():
     quit()
 
 
-#รวมปุ่ม
+#ฟังค์ชันปุ่ม
 def button(t, xm, ym, x, y, wid, hei, int, after, fast, best):
     if x + wid > xm > x and y + hei > ym > y:
         pygame.draw.rect(game_layout_display, after, [x - 2.5, y - 2.5, wid + 5, hei + 5])
@@ -332,18 +353,16 @@ def main_menu():
         click = pygame.mouse.get_pressed()
 
         game_layout_display.blit(menu_background, (0, 0))
-        button("Play", mouse[0], mouse[1], (width_screen / 2 - 100), height_screen / 2, 200, 100, green_color,
-               blue_green_color, 60, 1)
+        button("Play", mouse[0], mouse[1], 600, 300, 200, 50, green_color, blue_green_color, 25,1)
 
-        button("Quit", mouse[0], mouse[1], (width_screen / 2 - 100), (height_screen / 2) + 200, 200, 100, red_color,
-               blue_red_color, 60, 0)
+        button("Quit", mouse[0], mouse[1], 600, 400, 200, 50, red_color, blue_red_color, 25, 0)
 
         mouse = pygame.mouse.get_pos()
-        if button2("Mute Music", mouse[0], mouse[1], 1166, 0, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Mute Music", mouse[0], mouse[1], 600, 500, 200, 50, purple_color, blue_purple_color, 25):
             pygame.mixer.music.pause()
-        if button2("Play Music", mouse[0], mouse[1], 1166, 75, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Play Music", mouse[0], mouse[1], 600, 600, 200, 50, purple_color, blue_purple_color, 25):
             pygame.mixer.music.unpause()
-        if button2("Credits", mouse[0], mouse[1], 1166, 150, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Credits", mouse[0], mouse[1], 600, 600, 200, 50, purple_color, blue_purple_color, 25):
             creditation()
 
         pygame.display.update()
@@ -472,6 +491,7 @@ def playing(best):
                         time_clock = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time_clock < 2000:
                             message_display1_screen("Computer Wins", 650, 50, 50, black_color)
+                            x = winner(1)
                             pygame.mixer.Sound.play(lose)
                             pygame.display.update()
                         break
@@ -486,6 +506,7 @@ def playing(best):
                         time_clock = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time_clock < 2000:
                             message_display1_screen("Player 1 Wins", 650, 50, 50, black_color)
+                            x = winner(1)
                             pygame.mixer.Sound.play(win)
                             pygame.display.update()
                         break
@@ -503,6 +524,7 @@ def playing(best):
                         time_clock = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time_clock < 2000:
                             message_display1_screen("Player 2 Wins", 650, 50, 50, black_color)
+                            x = winner(2)
                             pygame.mixer.Sound.play(win)
                             pygame.display.update()
                         break
@@ -521,6 +543,7 @@ def playing(best):
                         time_clock = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time_clock < 2000:
                             message_display1_screen("Player 3 Wins", 650, 50, 50, black_color)
+                            x = winner(3)
                             pygame.mixer.Sound.play(win)
                             pygame.display.update()
                         break
@@ -539,6 +562,7 @@ def playing(best):
                         time_clock = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time_clock < 2000:
                             message_display1_screen("Player 4 Wins", 650, 50, 50, black_color)
+                            x = winner(4)
                             pygame.mixer.Sound.play(win)
                             pygame.display.update()
                         break
