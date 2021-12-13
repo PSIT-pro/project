@@ -36,7 +36,7 @@ green_c = pygame.image.load("set1/greenfish.png")
 blue_c = pygame.image.load("set1/bluefish.png")
 
 #หน้าเมนู
-menu_background = pygame.image.load("set1/BGgreen.jpg")
+menu_background = pygame.image.load("set1/main logo.jpg")
 post = pygame.image.load("set1/BGgreen.jpg")
 
 #พื้นหลังหน้าโหลด
