@@ -47,10 +47,10 @@ initial_background4 = pygame.image.load("set1/click3.jpg")
 initial_background5 = pygame.image.load("set1/click4.jpg")
 
 #หน้าชนะ
-win1 = pygame.image.load("set1/win.png")
-win2 = pygame.image.load("set1/win.png")
-win3 = pygame.image.load("set1/win.png")
-win4 = pygame.image.load("set1/win.png")
+win1 = pygame.image.load("set1/redwin.jpg")
+win2 = pygame.image.load("set1/yellowwin.jpg")
+win3 = pygame.image.load("set1/greenwin.jpg")
+win4 = pygame.image.load("set1/bluewin.jpg")
 
 #เครดิต
 creditations1 = pygame.image.load("set1/end.jpg")
@@ -255,12 +255,7 @@ def turn(sc, lefted, section):
             sc = sink
 
     else:  #เงื่อนไขถ้าแต้มเกิน 100 จะไม่เดินให้
-        sc -= d
-        time_clock = pygame.time.get_ticks()
-        while pygame.time.get_ticks() - time_clock < 1500:
-            print("Can't move!")
-            message_display1_screen("Can't move!", 650, 50, 35, black_color)
-            pygame.display.update()
+        sc = 100
     return sc, lefted, section, six
 
 #กดออกเกม
@@ -366,18 +361,18 @@ def main_menu():
         click = pygame.mouse.get_pressed()
 
         game_layout_display.blit(menu_background, (0, 0))
-        button("Play", mouse[0], mouse[1], 600, 300, 200, 50, green_color, blue_green_color, 25,1)
+        button("Play", mouse[0], mouse[1], 600, 300, 200, 50, green_color, blue_green_color, 50,1)
 
-        button("Quit", mouse[0], mouse[1], 600, 400, 200, 50, red_color, blue_red_color, 25, 0)
+        button("Quit", mouse[0], mouse[1], 600, 400, 200, 50, red_color, blue_red_color, 50, 0)
 
         mouse = pygame.mouse.get_pos()
-        if button2("Mute Music", mouse[0], mouse[1], 600, 500, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Mute Music", mouse[0], mouse[1], 300, 600, 200, 50, purple_color, blue_purple_color, 25):
             pygame.mixer.music.pause()
-        if button2("Play Music", mouse[0], mouse[1], 600, 600, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Play Music", mouse[0], mouse[1], 500, 600, 200, 50, purple_color, blue_purple_color, 25):
             pygame.mixer.music.unpause()
-        if button2("Credits", mouse[0], mouse[1], 600, 650, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Credits", mouse[0], mouse[1], 700, 600, 200, 50, purple_color, blue_purple_color, 25):
             creditation()
-        if button2("Member", mouse[0], mouse[1], 600, 700, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Member", mouse[0], mouse[1], 900, 600, 200, 50, purple_color, blue_purple_color, 25):
             name_list()
 
         pygame.display.update()
