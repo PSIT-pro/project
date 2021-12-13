@@ -2,7 +2,7 @@ import pygame
 from random import randint
 
 time_clocks = pygame.time.Clock()
-#ทดสอบ 6
+#ทดสอบ 7
 
 #เซตหน้าจอ
 pygame.init()
@@ -238,10 +238,6 @@ def button1(t, xm, ym, x, y, wid, hei, int, after, fast):
 def turn(sc, lefted, section):
     d = randint(1, 6)  #ระบบสุ่ม
     print(d)
-    if d == 6:
-        six = True
-    else:
-        six = False
     p = dice(d)
     sc += d #แต้มรวมของตัวเอง
     if sc <= 100:
@@ -259,7 +255,7 @@ def turn(sc, lefted, section):
 
     else:  #เงื่อนไขถ้าแต้มเกิน 100 จะไม่เดินให้
         sc = 100
-    return sc, lefted, section, six
+    return sc, lefted, section
 
 #กดออกเกม
 def Quit():
@@ -478,9 +474,8 @@ def playing(best):
         if best == 21:
             if button1("Player 1", mouse[0], mouse[1], 100, 700, 200, 50, red_color, grey_color, 30):
                 if tips == 1:
-                    gamer1score, less, set, six = turn(gamer1score, less, set)
-                    if not six:
-                        tips += 1
+                    gamer1score, less, set = turn(gamer1score, less, set)
+                    tips += 1
                     xcr, ycr = movement(gamer1score)
                     if gamer1score == 100:
                         time = pygame.time.get_ticks()
@@ -494,12 +489,11 @@ def playing(best):
             button1("Computer", mouse[0], mouse[1], 400, 700, 200, 50, yellow_color, grey_color, 30)
             if True:
                 if tips == 2:
-                    gamer2score, less, set, six = turn(gamer2score, less, set)
+                    gamer2score, less, set = turn(gamer2score, less, set)
                     xcy, ycy = movement(gamer2score)
-                    if not six:
-                        tips += 1
-                        if best < 3 or best == 21:
-                            tips = 1
+                    tips += 1
+                    if best < 3 or best == 21:
+                        tips = 1
 
                     if gamer2score == 100:
                         time_clock = pygame.time.get_ticks()
@@ -512,10 +506,9 @@ def playing(best):
         if 5 > best > 1:
             if button1("Player 1", mouse[0], mouse[1], 100, 700, 200, 50, red_color, grey_color, 30):
                 if tips == 1:
-                    gamer1score, less, set, six = turn(gamer1score, less, set)
+                    gamer1score, less, set = turn(gamer1score, less, set)
                     xcr, ycr = movement(gamer1score)
-                    if not six:
-                        tips += 1
+                    tips += 1
                     if gamer1score == 100:
                         time_clock = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time_clock < 2000:
@@ -527,12 +520,11 @@ def playing(best):
 
             if button1("Player 2", mouse[0], mouse[1], 400, 700, 200, 50, yellow_color, grey_color, 30):
                 if tips == 2:
-                    gamer2score, less, set, six = turn(gamer2score, less, set)
+                    gamer2score, less, set = turn(gamer2score, less, set)
                     xcy, ycy = movement(gamer2score)
-                    if not six:
-                        tips += 1
-                        if best < 3:
-                            tips = 1
+                    tips += 1
+                    if best < 3:
+                        tips = 1
 
                     if gamer2score == 100:
                         time_clock = pygame.time.get_ticks()
@@ -546,12 +538,11 @@ def playing(best):
         if 5 > best > 2:
             if button1("Player 3", mouse[0], mouse[1], 700, 700, 200, 50, green_color, grey_color, 30):
                 if tips == 3:
-                    gamer3score, less, set, six = turn(gamer3score, less, set)
+                    gamer3score, less, set = turn(gamer3score, less, set)
                     xcg, ycg = movement(gamer3score)
-                    if not six:
-                        tips += 1
-                        if best < 4:
-                            tips = 1
+                    tips += 1
+                    if best < 4:
+                        tips = 1
 
                     if gamer3score == 100:
                         time_clock = pygame.time.get_ticks()
@@ -565,12 +556,11 @@ def playing(best):
         if 5 > best > 3:
             if button1("Player 4", mouse[0], mouse[1], 1000, 700, 200, 50, blue_color, grey_color, 30):
                 if tips == 4:
-                    gamer4score, less, set, six = turn(gamer4score, less, set)
+                    gamer4score, less, set = turn(gamer4score, less, set)
                     xcb, ycb = movement(gamer4score)
-                    if not six:
-                        tips += 1
-                        if best < 5:
-                            tips = 1
+                    tips += 1
+                    if best < 5:
+                        tips = 1
 
                     if gamer4score == 100:
                         time_clock = pygame.time.get_ticks()
