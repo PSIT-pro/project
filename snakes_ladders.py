@@ -40,23 +40,24 @@ menu_background = pygame.image.load("set1/BGgreen.jpg")
 post = pygame.image.load("set1/BGgreen.jpg")
 
 #พื้นหลังหน้าโหลด
-initial_background = pygame.image.load("set1/click5.jpg")
-initial_background2 = pygame.image.load("set1/click1.jpg")
-initial_background3 = pygame.image.load("set1/click2.jpg")
-initial_background4 = pygame.image.load("set1/click3.jpg")
-initial_background5 = pygame.image.load("set1/click4.jpg")
+initial_background = pygame.image.load("set1/present.jpg")
+initial_background2 = pygame.image.load("set1/press1.jpg")
+initial_background3 = pygame.image.load("set1/press2.jpg")
+initial_background4 = pygame.image.load("set1/press3.jpg")
+initial_background5 = pygame.image.load("set1/press4.jpg")
 
 #หน้าชนะ
+win0 = pygame.image.load("set1/computerwin.jpg")
 win1 = pygame.image.load("set1/redwin.jpg")
 win2 = pygame.image.load("set1/yellowwin.jpg")
 win3 = pygame.image.load("set1/greenwin.jpg")
 win4 = pygame.image.load("set1/bluewin.jpg")
 
 #เครดิต
-creditations1 = pygame.image.load("set1/end.jpg")
+creditations1 = pygame.image.load("set1/Credits.jpg")
 
 #รายชื่อ
-name = pygame.image.load("set1/end.jpg")
+name = pygame.image.load("set1/members.jpg")
 
 #เพลงประกอบ
 pygame.mixer.music.load("sound/BGsong.wav")
@@ -191,12 +192,14 @@ def winner(w):
     if w == 1: #ผู้เล่น 1 ชนะ
         w = win1
     elif w == 2: #ผู้เล่น 2 ชนะ
-        w = win1
+        w = win2
     elif w == 3: #ผู้เล่น 3 ชนะ
-        w = win1
+        w = win3
     elif w == 4: #ผู้เล่น 4 ชนะ
-        w = win1
-
+        w = win4
+    elif w == 0: #ผู้เล่น 4 ชนะ
+        w = win0
+    
     time_clock = pygame.time.get_ticks()
     while pygame.time.get_ticks() - time_clock < 5000:
         game_layout_display.blit(w, (420, 100))
@@ -325,7 +328,7 @@ def creditation():
         # mouse position
         mouse = pygame.mouse.get_pos()
         click = pygame.mouse.get_pressed()
-        if button("Back", mouse[0], mouse[1], 0, 500, 200, 50, red_color, blue_red_color, 25, 20):
+        if button("Back", mouse[0], mouse[1], 5, 50, 200, 50, red_color, blue_red_color, 25, 20):
             main_menu() #ปุ่มกดกลับหน้าเมนู
         pygame.display.update()
 
@@ -340,7 +343,7 @@ def name_list():
         # mouse position
         mouse = pygame.mouse.get_pos()
         click = pygame.mouse.get_pressed()
-        if button("Back", mouse[0], mouse[1],0, 500, 200, 50, red_color, blue_red_color, 25, 20):
+        if button("Back", mouse[0], mouse[1],5, 50, 200, 50, red_color, blue_red_color, 25, 20):
             main_menu() #ปุ่มกดกลับหน้าเมนู
         pygame.display.update()
 
@@ -502,7 +505,7 @@ def playing(best):
                         time_clock = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time_clock < 2000:
                             message_display1_screen("Computer Wins", 650, 50, 50, black_color)
-                            x = winner(1)
+                            x = winner(0)
                             pygame.mixer.Sound.play(lose)
                             pygame.display.update()
                         break
