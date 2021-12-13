@@ -60,11 +60,11 @@ creditations1 = pygame.image.load("set1/Credits.jpg")
 name = pygame.image.load("set1/members.jpg")
 
 #เพลงประกอบ
-pygame.mixer.music.load("sound/BGsong.wav") #เเก้เเล้ว
-snake_sound = pygame.mixer.Sound("sound/OUCH.wav") #เเก้เเล้ว
-win = pygame.mixer.Sound("sound/win.wav")
-lose = pygame.mixer.Sound("sound/lose.wav")
-ladder = pygame.mixer.Sound("sound/Pipe.wav") #เเก้เเล้ว
+pygame.mixer.music.load("sound/BGsong.wav")
+snake_sound = pygame.mixer.Sound("sound/OUCH.wav")
+win = pygame.mixer.Sound("sound/Oh my god.wav")
+lose = pygame.mixer.Sound("sound/o tai leaw.wav")
+ladder = pygame.mixer.Sound("sound/Pipe.wav")
 
 #ตำแหน่งเมาส์
 mouse = pygame.mouse.get_pos()
