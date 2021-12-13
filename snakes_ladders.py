@@ -47,10 +47,10 @@ initial_background4 = pygame.image.load("set1/click3.jpg")
 initial_background5 = pygame.image.load("set1/click4.jpg")
 
 #หน้าชนะ
-win1 = pygame.image.load("set1/win.png")
-win2 = pygame.image.load("set1/win.png")
-win3 = pygame.image.load("set1/win.png")
-win4 = pygame.image.load("set1/win.png")
+win1 = pygame.image.load("set1/redwin.jpg")
+win2 = pygame.image.load("set1/yellowwin.jpg")
+win3 = pygame.image.load("set1/greenwin.jpg")
+win4 = pygame.image.load("set1/bluewin.jpg")
 
 #เครดิต
 creditations1 = pygame.image.load("set1/end.jpg")
@@ -255,12 +255,7 @@ def turn(sc, lefted, section):
             sc = sink
 
     else:  #เงื่อนไขถ้าแต้มเกิน 100 จะไม่เดินให้
-        sc -= d
-        time_clock = pygame.time.get_ticks()
-        while pygame.time.get_ticks() - time_clock < 1500:
-            print("Can't move!")
-            message_display1_screen("Can't move!", 650, 50, 35, black_color)
-            pygame.display.update()
+        sc = 100
     return sc, lefted, section, six
 
 #กดออกเกม
