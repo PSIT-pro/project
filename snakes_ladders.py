@@ -2,7 +2,7 @@ import pygame
 from random import randint
 
 time_clocks = pygame.time.Clock()
-#ทดสอบ 3
+#ทดสอบ 5
 
 #เซตหน้าจอ
 pygame.init()
@@ -54,6 +54,9 @@ win4 = pygame.image.load("set1/win.png")
 
 #เครดิต
 creditations1 = pygame.image.load("set1/end.jpg")
+
+#รายชื่อ
+name = pygame.image.load("set1/end.jpg")
 
 #เพลงประกอบ
 pygame.mixer.music.load("sound/BGsong.wav")
@@ -241,13 +244,13 @@ def turn(sc, lefted, section):
     if sc <= 100:
         laddle = ladders(sc)  #เช็คกับตำแหน่งบันได
         if laddle != sc:
-            lefted = True
+            lefted = True #ถ้าเป็นจริง จะปรับตำแหน่ง 
             pygame.mixer.Sound.play(ladder)
             time_clock = pygame.time.get_ticks()
             sc = laddle
         sink = snakes(sc) 
         if sink != sc:  #เช็คกับตำแแหน่งงู
-            section = True
+            section = True #ถ้าเป็นจริง จะปรับตำแหน่ง
             pygame.mixer.Sound.play(snake_sound)
             sc = sink
 
@@ -260,12 +263,10 @@ def turn(sc, lefted, section):
             pygame.display.update()
     return sc, lefted, section, six
 
-
 #กดออกเกม
 def Quit():
     pygame.quit()
     quit()
-
 
 #ฟังค์ชันปุ่ม
 def button(t, xm, ym, x, y, wid, hei, int, after, fast, best):
@@ -329,16 +330,28 @@ def creditation():
         # mouse position
         mouse = pygame.mouse.get_pos()
         click = pygame.mouse.get_pressed()
-        if button("Back", mouse[0], mouse[1], width_screen / 2 - 100, 700, 200, 50, red_color, blue_red_color, 25, 20):
+        if button("Back", mouse[0], mouse[1], 0, 500, 200, 50, red_color, blue_red_color, 25, 20):
             main_menu() #ปุ่มกดกลับหน้าเมนู
-
         pygame.display.update()
 
+#ปุ่มดูรายชื่อ
+def name_list():
+    while True:
+        game_layout_display.blit(name, (0, 0))
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    Quit()
+        # mouse position
+        mouse = pygame.mouse.get_pos()
+        click = pygame.mouse.get_pressed()
+        if button("Back", mouse[0], mouse[1],0, 500, 200, 50, red_color, blue_red_color, 25, 20):
+            main_menu() #ปุ่มกดกลับหน้าเมนู
+        pygame.display.update()
 
 #หน้าต่าง Main Menu
 def main_menu():
     pygame.mixer.music.play(-1)
-
     m = True
     while m:
         for event in pygame.event.get():
@@ -362,8 +375,10 @@ def main_menu():
             pygame.mixer.music.pause()
         if button2("Play Music", mouse[0], mouse[1], 600, 600, 200, 50, purple_color, blue_purple_color, 25):
             pygame.mixer.music.unpause()
-        if button2("Credits", mouse[0], mouse[1], 600, 600, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Credits", mouse[0], mouse[1], 600, 650, 200, 50, purple_color, blue_purple_color, 25):
             creditation()
+        if button2("Member", mouse[0], mouse[1], 600, 700, 200, 50, purple_color, blue_purple_color, 25):
+            name_list()
 
         pygame.display.update()
 
@@ -473,6 +488,7 @@ def playing(best):
                         time = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time < 2000:
                             message_display1_screen("Player 1 Wins", 650, 50, 50, blue_color)
+                            x = winner(1)
                             pygame.mixer.Sound.play(win)
                             pygame.display.update()
                         break
