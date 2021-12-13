@@ -36,7 +36,7 @@ green_c = pygame.image.load("set1/greenfish.png")
 blue_c = pygame.image.load("set1/bluefish.png")
 
 #หน้าเมนู
-menu_background = pygame.image.load("set1/main logo.jpg")
+menu_background = pygame.image.load("set1/main menu.jpg")
 post = pygame.image.load("set1/BGgreen.jpg")
 
 #พื้นหลังหน้าโหลด
@@ -360,18 +360,18 @@ def main_menu():
         click = pygame.mouse.get_pressed()
 
         game_layout_display.blit(menu_background, (0, 0))
-        button("Play", mouse[0], mouse[1], 575, 400, 250, 50, green_color, blue_green_color, 35,1)
+        button("Play", mouse[0], mouse[1], 560, 350, 250, 50, green_color, blue_green_color, 35,1)
 
-        button("Quit", mouse[0], mouse[1], 600, 580, 200, 50, red_color, blue_red_color, 25, 0)
+        button("Quit", mouse[0], mouse[1], 585, 530, 200, 50, red_color, blue_red_color, 25, 0)
 
         mouse = pygame.mouse.get_pos()
         if button2("Mute Music", mouse[0], mouse[1], 1165, 710, 200, 50, purple_color, blue_purple_color, 25):
             pygame.mixer.music.pause()
         if button2("Play Music", mouse[0], mouse[1], 1165, 650, 200, 50, purple_color, blue_purple_color, 25):
             pygame.mixer.music.unpause()
-        if button2("Credits", mouse[0], mouse[1], 600, 460, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Credits", mouse[0], mouse[1], 585, 470, 200, 50, purple_color, blue_purple_color, 25):
             creditation()
-        if button2("Member", mouse[0], mouse[1], 600, 520, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Member", mouse[0], mouse[1], 585, 410, 200, 50, purple_color, blue_purple_color, 25):
             name_list()
 
         pygame.display.update()
@@ -394,16 +394,16 @@ def choice():
         best1 = best2 = best3 = best4 = best5 = -1
         game_layout_display.blit(menu_background, (0, 0))
         #ปุ่มเล่น 1 คน
-        best1 = button("Single Player", mouse[0], mouse[1], (width_screen / 2 - 150), 250, 300, 50, green_color,
+        best1 = button("Single Player", mouse[0], mouse[1], 100, 450, 250, 50, green_color,
                        blue_green_color, 30, "s")
         #ปุ่มเล่น 2 คน
-        best2 = button("2 Players", mouse[0], mouse[1], (width_screen / 2) - 150, 350, 300, 50, green_color,
+        best2 = button("2 Players", mouse[0], mouse[1], 400, 450, 250, 50, green_color,
                        blue_green_color, 30, 2)
         #ปุ่มเล่น 3 คน
-        best3 = button("3 Players", mouse[0], mouse[1], (width_screen / 2) - 150, 450, 300, 50, green_color,
+        best3 = button("3 Players", mouse[0], mouse[1], 700, 450, 250, 50, green_color,
                        blue_green_color, 30, 3)
         #ปุ่มเล่น 4 คน
-        best4 = button("4 Players", mouse[0], mouse[1], (width_screen / 2) - 150, 550, 300, 50, green_color,
+        best4 = button("4 Players", mouse[0], mouse[1], 1000, 450, 250, 50, green_color,
                        blue_green_color, 30, 4)
         #ปุ่มกลับหน้าก่อน
         best5 = button("Back", mouse[0], mouse[1], 0, 650, 200, 50, red_color, blue_red_color, 30, 5)
