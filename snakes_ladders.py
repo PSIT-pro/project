@@ -19,45 +19,45 @@ pygame.display.update()
 #รูปประกอบทั้งหมด
 
 #รูปกระดาน
-mainboard = pygame.image.load("set1/border.png")
+mainboard = pygame.image.load("real art/border.png")
 
 #รูปลูกเต๋า 6 แบบ
-d1 = pygame.image.load("set1/dice_image1.png")
-d2 = pygame.image.load("set1/dice_image2.png")
-d3 = pygame.image.load("set1/dice_image3.png")
-d4 = pygame.image.load("set1/dice_image4.png")
-d5 = pygame.image.load("set1/dice_image5.png")
-d6 = pygame.image.load("set1/dice_image6.png")
+d1 = pygame.image.load("real art/dice_image1.png")
+d2 = pygame.image.load("real art/dice_image2.png")
+d3 = pygame.image.load("real art/dice_image3.png")
+d4 = pygame.image.load("real art/dice_image4.png")
+d5 = pygame.image.load("real art/dice_image5.png")
+d6 = pygame.image.load("real art/dice_image6.png")
 
 #ภาพตัวหมาก 4 สี
-red_c = pygame.image.load("set1/redfish.png")
-yellow_c = pygame.image.load("set1/yellowfish.png")
-green_c = pygame.image.load("set1/greenfish.png")
-blue_c = pygame.image.load("set1/bluefish.png")
+red_c = pygame.image.load("real art/redfish.png")
+yellow_c = pygame.image.load("real art/yellowfish.png")
+green_c = pygame.image.load("real art/greenfish.png")
+blue_c = pygame.image.load("real art/bluefish.png")
 
 #หน้าเมนู
-menu_background = pygame.image.load("set1/main menu.jpg")
-post = pygame.image.load("set1/BGgreen.jpg")
+menu_background = pygame.image.load("real art/main menu.jpg")
+post = pygame.image.load("real art/BGgreen.jpg")
 
 #พื้นหลังหน้าโหลด
-initial_background = pygame.image.load("set1/present.jpg")
-initial_background2 = pygame.image.load("set1/press1.jpg")
-initial_background3 = pygame.image.load("set1/press2.jpg")
-initial_background4 = pygame.image.load("set1/press3.jpg")
-initial_background5 = pygame.image.load("set1/press4.jpg")
+initial_background = pygame.image.load("real art/present.jpg")
+initial_background2 = pygame.image.load("real art/press1.jpg")
+initial_background3 = pygame.image.load("real art/press2.jpg")
+initial_background4 = pygame.image.load("real art/press3.jpg")
+initial_background5 = pygame.image.load("real art/press4.jpg")
 
 #หน้าชนะ
-win0 = pygame.image.load("set1/computerwin.jpg")
-win1 = pygame.image.load("set1/redwin.jpg")
-win2 = pygame.image.load("set1/yellowwin.jpg")
-win3 = pygame.image.load("set1/greenwin.jpg")
-win4 = pygame.image.load("set1/bluewin.jpg")
+win0 = pygame.image.load("real art/computerwin.jpg")
+win1 = pygame.image.load("real art/redwin.jpg")
+win2 = pygame.image.load("real art/yellowwin.jpg")
+win3 = pygame.image.load("real art/greenwin.jpg")
+win4 = pygame.image.load("real art/bluewin.jpg")
 
 #เครดิต
-creditations1 = pygame.image.load("set1/Credits.jpg")
+creditations1 = pygame.image.load("real art/Credits.jpg")
 
 #รายชื่อ
-name = pygame.image.load("set1/members.jpg")
+name = pygame.image.load("real art/members.jpg")
 
 #เพลงประกอบ
 pygame.mixer.music.load("sound/BGsong.wav")
