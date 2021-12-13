@@ -366,18 +366,18 @@ def main_menu():
         click = pygame.mouse.get_pressed()
 
         game_layout_display.blit(menu_background, (0, 0))
-        button("Play", mouse[0], mouse[1], 600, 300, 200, 50, green_color, blue_green_color, 25,1)
+        button("Play", mouse[0], mouse[1], 575, 400, 250, 50, green_color, blue_green_color, 35,1)
 
-        button("Quit", mouse[0], mouse[1], 600, 400, 200, 50, red_color, blue_red_color, 25, 0)
+        button("Quit", mouse[0], mouse[1], 600, 580, 200, 50, red_color, blue_red_color, 25, 0)
 
         mouse = pygame.mouse.get_pos()
-        if button2("Mute Music", mouse[0], mouse[1], 600, 500, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Mute Music", mouse[0], mouse[1], 1165, 710, 200, 50, purple_color, blue_purple_color, 25):
             pygame.mixer.music.pause()
-        if button2("Play Music", mouse[0], mouse[1], 600, 600, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Play Music", mouse[0], mouse[1], 1165, 650, 200, 50, purple_color, blue_purple_color, 25):
             pygame.mixer.music.unpause()
-        if button2("Credits", mouse[0], mouse[1], 600, 650, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Credits", mouse[0], mouse[1], 600, 460, 200, 50, purple_color, blue_purple_color, 25):
             creditation()
-        if button2("Member", mouse[0], mouse[1], 600, 700, 200, 50, purple_color, blue_purple_color, 25):
+        if button2("Member", mouse[0], mouse[1], 600, 520, 200, 50, purple_color, blue_purple_color, 25):
             name_list()
 
         pygame.display.update()
