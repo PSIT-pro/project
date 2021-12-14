@@ -165,7 +165,7 @@ def snakes(x):
     else:
         return x
 
-#การทำงานของลูกเต๋า
+#การแสดงผลของลูกเต๋า
 def dice(d):
     if d == 1: #ทอยได้ 1
         d = d1
@@ -373,7 +373,7 @@ def main_menu():
 
         pygame.display.update()
 
-#ตั่งค่าเมนู
+#ตั่งค่าเมนูเลือกจำนวนผู้เล่น
 def choice():
     f = True
     while f == True:
