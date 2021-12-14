@@ -2,7 +2,7 @@ import pygame
 from random import randint
 
 time_clocks = pygame.time.Clock()
-#ทดสอบ 7
+#ทดสอบ ไฟนอล
 
 #เซตหน้าจอ
 pygame.init()
@@ -83,27 +83,25 @@ yellow_color = (150, 150, 0)
 purple_color = (43, 3, 132)
 blue_purple_color = (60, 0, 190)
 
-# Message displaying for buttons
+#การแสดงผลหน้าจอ
 def message_display_screen(text, x, y, fs):
     largeText = pygame.font.Font('freesansbold.ttf', fs)
     TextSurf, TextRect = text_objects_screen(text, largeText)
     TextRect.center = (x, y)
     game_layout_display.blit(TextSurf, TextRect)
 
-
+#การแสดงผลตัวอักษร
 def text_objects_screen(text, font):
     textSurface = font.render(text, True, white_color)
     return textSurface, textSurface.get_rect()
 
-
-# Message displaying for field
+#ปรับฟอร์น
 def message_display1_screen(text, x, y, fs, c):
     largeText = pygame.font.Font('freesansbold.ttf', fs)
     TextSurf, TextRect = text_objects1(text, largeText)
     TextRect.center = (x, y)
     game_layout_display.blit(TextSurf, TextRect)
-
-
+    
 def text_objects1_screen(text, font, c):
     textSurface = font.render(text, True, c)
     return textSurface, textSurface.get_rect()
@@ -219,9 +217,8 @@ def button2(t, xm, ym, x, y, wid, hei, int, after, fast):
     message_display_screen(t, (x + wid + x) / 2, (y + hei + y) / 2, fast)
 
 
-# Buttons for playing:
+#ตำแหน่งปุ่มในการเล่น
 def button1(t, xm, ym, x, y, wid, hei, int, after, fast):
-    # mouse position
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
     if x + wid > xm > x and y + hei > ym > y:
@@ -253,7 +250,7 @@ def turn(sc, lefted, section):
             pygame.mixer.Sound.play(snake_sound)
             sc = sink
 
-    else:  #เงื่อนไขถ้าแต้มเกิน 100 จะไม่เดินให้
+    else:  #เงื่อนไขถ้าแต้มเกิน 100 จะปรับเลขเป็น 100 แล้วจะชนะ
         sc = 100
     return sc, lefted, section
 
@@ -284,7 +281,7 @@ def button(t, xm, ym, x, y, wid, hei, int, after, fast, best):
         pygame.draw.rect(game_layout_display, int, [x, y, wid, hei])
     message_display_screen(t, (x + wid + x) / 2, (y + hei + y) / 2, fast)
 
-#หน้าต่างโหลดการเริ่มเกม
+#หน้าต่างโหลดการเริ่มเกม แอนิเมชั่นงู
 def introduction():
     time_clock = pygame.time.get_ticks()
     while pygame.time.get_ticks() - time_clock < 2500:
@@ -363,7 +360,7 @@ def main_menu():
         button("Play", mouse[0], mouse[1], 560, 350, 250, 50, green_color, blue_green_color, 35,1)
 
         button("Quit", mouse[0], mouse[1], 585, 530, 200, 50, red_color, blue_red_color, 25, 0)
-
+        #ปุ่มทุกอัน
         mouse = pygame.mouse.get_pos()
         if button2("Mute Music", mouse[0], mouse[1], 1165, 710, 200, 50, purple_color, blue_purple_color, 25):
             pygame.mixer.music.pause()
@@ -375,7 +372,6 @@ def main_menu():
             name_list()
 
         pygame.display.update()
-
 
 #ตั่งค่าเมนู
 def choice():
@@ -394,17 +390,13 @@ def choice():
         best1 = best2 = best3 = best4 = best5 = -1
         game_layout_display.blit(menu_background, (0, 0))
         #ปุ่มเล่น 1 คน
-        best1 = button("Single Player", mouse[0], mouse[1], 100, 450, 250, 50, green_color,
-                       blue_green_color, 30, "s")
+        best1 = button("Single Player", mouse[0], mouse[1], 100, 450, 250, 50, green_color, blue_green_color, 30, "s")
         #ปุ่มเล่น 2 คน
-        best2 = button("2 Players", mouse[0], mouse[1], 400, 450, 250, 50, green_color,
-                       blue_green_color, 30, 2)
+        best2 = button("2 Players", mouse[0], mouse[1], 400, 450, 250, 50, green_color, blue_green_color, 30, 2)
         #ปุ่มเล่น 3 คน
-        best3 = button("3 Players", mouse[0], mouse[1], 700, 450, 250, 50, green_color,
-                       blue_green_color, 30, 3)
+        best3 = button("3 Players", mouse[0], mouse[1], 700, 450, 250, 50, green_color, blue_green_color, 30, 3)
         #ปุ่มเล่น 4 คน
-        best4 = button("4 Players", mouse[0], mouse[1], 1000, 450, 250, 50, green_color,
-                       blue_green_color, 30, 4)
+        best4 = button("4 Players", mouse[0], mouse[1], 1000, 450, 250, 50, green_color, blue_green_color, 30, 4)
         #ปุ่มกลับหน้าก่อน
         best5 = button("Back", mouse[0], mouse[1], 0, 650, 200, 50, red_color, blue_red_color, 30, 5)
         if best5 == 5:
@@ -417,7 +409,6 @@ def choice():
             playing(3)
         if best4 == 4:
             playing(4)
-
         pygame.display.update()
 
 #ระบบการเล่น
@@ -441,16 +432,16 @@ def playing(best):
         game_layout_display.blit(blue_c, (xcb, ycb))
     gamer1 = "Player 1"
     gamer1score = 0
-    if best == 21:
+    if best == 21: #การเล่นกับคอมพิวเตอร์
         gamer2 = "Computer"
         gamer2score = 0
-    if 5 > best > 1:
+    if 5 > best > 1: #ผู้เล่นสองคน
         gamer2 = "Player 2"
         gamer2score = 0
-    if 5 > best > 2:
+    if 5 > best > 2: #ผู้เล่นสามคน
         gamer3 = "Player 3"
         gamer3score = 0
-    if 5 > best > 3:
+    if 5 > best > 3: #ผู้เล่นสี่คน
         gamer4 = "Player 4"
         gamer4score = 0
     tips = 1
@@ -463,26 +454,25 @@ def playing(best):
         game_layout_display.blit(mainboard, (width_screen / 2 - 250, height_screen / 2 - 250))
         mouse = pygame.mouse.get_pos()
 
-        for event in pygame.event.get():
-
-            if event.type == pygame.QUIT:
+        for event in pygame.event.get():#อีเวนท์ ออกเกม
+            if event.type == pygame.QUIT: 
                 Quit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     Quit()
 
-        if best == 21:
+        if best == 21: #การเล่นกับคอมพิวเตอร์
             if button1("Player 1", mouse[0], mouse[1], 100, 700, 200, 50, red_color, grey_color, 30):
                 if tips == 1:
                     gamer1score, less, set = turn(gamer1score, less, set)
                     tips += 1
                     xcr, ycr = movement(gamer1score)
-                    if gamer1score == 100:
+                    if gamer1score == 100: #ถ้าแต้มเท่ากับ 100 หรือเกิน 100 จะแสดงผลชนะ
                         time = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time < 2000:
                             message_display1_screen("Player 1 Wins", 650, 50, 50, blue_color)
-                            x = winner(1)
-                            pygame.mixer.Sound.play(win)
+                            x = winner(1) #แสดงหน้าผู้ชนะ
+                            pygame.mixer.Sound.play(win) #เล่นเพลงผู้ชนะ
                             pygame.display.update()
                         break
 
@@ -495,12 +485,12 @@ def playing(best):
                     if best < 3 or best == 21:
                         tips = 1
 
-                    if gamer2score == 100:
+                    if gamer2score == 100: #ถ้าแต้มเท่ากับ 100 หรือเกิน 100 จะแสดงผลชนะ
                         time_clock = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time_clock < 2000:
                             message_display1_screen("Computer Wins", 650, 50, 50, black_color)
-                            x = winner(0)
-                            pygame.mixer.Sound.play(lose)
+                            x = winner(0) #แสดงหน้าผู้ชนะ
+                            pygame.mixer.Sound.play(lose) #เล่นเพลงผู้แพ้
                             pygame.display.update()
                         break
         if 5 > best > 1:
@@ -509,12 +499,12 @@ def playing(best):
                     gamer1score, less, set = turn(gamer1score, less, set)
                     xcr, ycr = movement(gamer1score)
                     tips += 1
-                    if gamer1score == 100:
+                    if gamer1score == 100: #ถ้าแต้มเท่ากับ 100 หรือเกิน 100 จะแสดงผลชนะ
                         time_clock = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time_clock < 2000:
                             message_display1_screen("Player 1 Wins", 650, 50, 50, black_color)
-                            x = winner(1)
-                            pygame.mixer.Sound.play(win)
+                            x = winner(1) #แสดงหน้าผู้ชนะ
+                            pygame.mixer.Sound.play(win) #เล่นเพลงผู้ชนะ
                             pygame.display.update()
                         break
 
@@ -526,16 +516,16 @@ def playing(best):
                     if best < 3:
                         tips = 1
 
-                    if gamer2score == 100:
+                    if gamer2score == 100: #ถ้าแต้มเท่ากับ 100 หรือเกิน 100 จะแสดงผลชนะ
                         time_clock = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time_clock < 2000:
                             message_display1_screen("Player 2 Wins", 650, 50, 50, black_color)
-                            x = winner(2)
-                            pygame.mixer.Sound.play(win)
+                            x = winner(2) #แสดงหน้าผู้ชนะ
+                            pygame.mixer.Sound.play(win) #เล่นเพลงผู้ชนะ
                             pygame.display.update()
                         break
 
-        if 5 > best > 2:
+        if 5 > best > 2: 
             if button1("Player 3", mouse[0], mouse[1], 700, 700, 200, 50, green_color, grey_color, 30):
                 if tips == 3:
                     gamer3score, less, set = turn(gamer3score, less, set)
@@ -544,12 +534,12 @@ def playing(best):
                     if best < 4:
                         tips = 1
 
-                    if gamer3score == 100:
+                    if gamer3score == 100: #ถ้าแต้มเท่ากับ 100 หรือเกิน 100 จะแสดงผลชนะ
                         time_clock = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time_clock < 2000:
                             message_display1_screen("Player 3 Wins", 650, 50, 50, black_color)
-                            x = winner(3)
-                            pygame.mixer.Sound.play(win)
+                            x = winner(3) #แสดงหน้าผู้ชนะ
+                            pygame.mixer.Sound.play(win) #เล่นเพลงผู้ชนะ
                             pygame.display.update()
                         break
 
@@ -562,12 +552,12 @@ def playing(best):
                     if best < 5:
                         tips = 1
 
-                    if gamer4score == 100:
+                    if gamer4score == 100: #ถ้าแต้มเท่ากับ 100 หรือเกิน 100 จะแสดงผลชนะ
                         time_clock = pygame.time.get_ticks()
                         while pygame.time.get_ticks() - time_clock < 2000:
                             message_display1_screen("Player 4 Wins", 650, 50, 50, black_color)
-                            x = winner(4)
-                            pygame.mixer.Sound.play(win)
+                            x = winner(4) #แสดงหน้าผู้ชนะ
+                            pygame.mixer.Sound.play(win) #เล่นเพลงผู้ชนะ
                             pygame.display.update()
                         break
 
@@ -582,16 +572,16 @@ def playing(best):
         if 5 > best > 3:
             game_layout_display.blit(blue_c, (xcb + 6, ycb))
 
-        if less:
+        if less: #แสดงคำเมื่อตกบันได
             time_clock = pygame.time.get_ticks()
             while pygame.time.get_ticks() - time_clock < 2000:
                 print("There's a Ladder!")
                 message_display1_screen("There's a Ladder!", 650, 50, 35, black_color)
                 pygame.display.update()
-        if set:
+        if set: #แสดงคำเมื่อตกงู
             time_clock = pygame.time.get_ticks()
             while pygame.time.get_ticks() - time_clock < 2000:
-                print("There's a Snake!")
+                print("There's a Snake!") 
                 message_display1_screen("There's a Snake!", 650, 50, 35, black_color)
                 pygame.display.update()
 
