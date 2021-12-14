@@ -203,8 +203,8 @@ def winner(w):
         game_layout_display.blit(w, (420, 100))
         pygame.display.update()
 
+#การสร้างและจัดวางตำแหน่งปุ่ม
 def button2(t, xm, ym, x, y, wid, hei, int, after, fast):
-    # mouse position
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
     if x + wid > xm > x and y + hei > ym > y:
